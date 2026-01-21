@@ -51,6 +51,6 @@ jobs:
             cd /home/$(whoami)/tiermaster/setup-prod
             echo "${{ secrets.ghrcToken }}" | docker login ghcr.io -u ${{ secrets.ghrcUser }} --password-stdin
             git pull origin main
-            docker compose -f docker-compose.yml pull
-            docker compose -f docker-compose.yml up -d --remove-orphans
+            docker compose -f compose.yml pull
+            docker compose -f compose.yml up -d --remove-orphans
             docker image prune -f
